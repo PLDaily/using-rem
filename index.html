@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>rem布局示例</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <style type="text/css">
+	* {
+		padding: 0;
+		margin: 0;
+	}
+    html, body {
+        width: 100%;
+    }
+    body{
+        box-sizing: border-box;
+        background-color: #f4f4f4;
+        padding: 0.3rem;
+    }
+    .container{
+        background-color: #fff;
+        border-radius: 0.03rem;
+        box-sizing: border-box;
+        height: 100%;
+        padding: 0.8rem 0.2rem 1rem 0.2rem;
+    }
+    .logo {
+        display: flex;
+        justify-content: center;
+    }
+    .logo img{
+        width: 3rem;
+        height: 0.74rem;
+    }
+    .description {
+        line-height: 2;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        margin-top: 0.44rem;
+    }
+    .description span {
+        font-size: 0.32rem;
+    }
+    .main_img {
+        display: flex;
+        justify-content: center;
+        margin-top: 0.78rem;
+    }
+    .main_img img{
+        width: 5.23rem;
+        height: 3.26rem;
+    }
+    .main_btn {
+        margin-top: 1.6rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+    .main_btn button{
+        width: 2.92rem;
+        height: 1rem;
+        font-size: 0.32rem;
+    }
+    </style>
+</head>
+<body>
+<div class="container">
+	<div class="logo">
+		<image src="./images/logo.png"></image>
+	</div>
+	<div class="description">
+		<span>有什么好东西想要推荐给朋友？</span>
+		<span>想入手什么？征求一下朋友的建议吧！</span>
+	</div>
+	<div class="main_img">
+		<image src="./images/index.png"></image>
+	</div>
+	<div class="main_btn">
+        <button type="button" class="btn btn-default">推荐好物</button>
+        <button type="button" class="btn btn-default">求推荐</button>
+	</div>
+</div>
+<script type="text/javascript">
+(function (doc, win) {
+    var docEl = doc.documentElement,
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        recalc = function () {
+            var clientWidth = docEl.clientWidth;
+            console.log(clientWidth);
+            if (!clientWidth) return;
+            if(clientWidth>=750){
+                docEl.style.fontSize = '100px';
+            }else{
+                console.log(100 * (clientWidth / 750));
+                docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+            }
+        };
+
+    if (!doc.addEventListener) return;
+    win.addEventListener(resizeEvt, recalc, false);
+    doc.addEventListener('DOMContentLoaded', recalc, false);
+})(document, window);
+</script>
+</body>
+</html>
